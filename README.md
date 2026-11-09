@@ -44,10 +44,3 @@ Cronometro/
 | ▶️ / ⏸️ | Botão dinâmico que inicia, pausa ou retoma a contagem do tempo. |
 | 🚩 | Captura o tempo atual e o salva na lista de marcas na tela. |
 
-## 🧠 Como Funciona (Resumo do Código)
-
-* **Controle do Tempo:** O tempo decorrido é armazenado em uma variável numérica chamada `timer`, incrementada em centésimos de segundo.
-* **Precisão:** Um método `setInterval` configurado para disparar a cada 10 milissegundos adiciona `+1` ao contador principal e atualiza a interface de usuário.
-* **Formatação:** A função `formatTime` divide o valor total de centésimos em blocos de horas, minutos, segundos e centésimos correspondentes, aplicando a propriedade `padStart` para garantir o preenchimento com zeros à esquerda quando necessário.
-* **Máquina de Estados:** O botão principal gerencia suas ações por meio do atributo personalizado `action` (`start`, `pause` ou `continue`), que define o comportamento da função `toggleTimer` a cada clique.
-* **Histórico:** As voltas capturadas são empurradas para dentro de um array `marks` e renderizadas dinamicamente dentro da tag `div#marks-list`.

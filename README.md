@@ -1,39 +1,53 @@
-⏱️ Cronômetro
+# ⏱️ Cronômetro
 
-Um cronômetro simples feito com HTML, CSS e JavaScript puro, que roda direto no navegador, sem instalar nada. Ele permite iniciar, pausar, continuar, zerar e marcar tempos (voltas).
+Um cronômetro simples feito com HTML, CSS e JavaScript puro, que roda direto no navegador, sem precisar instalar nada. Ele permite iniciar, pausar, continuar, zerar e marcar tempos parciais (voltas).
 
-Funcionalidades
-▶️ Iniciar / Pausar / Continuar: um único botão alterna entre os estados e o ícone muda conforme a ação.
-🔄 Resetar: zera o tempo, apaga as marcas e volta o botão para o estado inicial.
-🚩 Marcar tempo: registra o tempo atual e adiciona na lista ("Marca 1", "Marca 2", ...).
-Exibição no formato horas:minutos:segundos:centésimos (HH:MM:SS:CC).
-Tecnologias utilizadas
-Tecnologia	Uso
-HTML5	Estrutura da página
-CSS3	Estilo (layout com Flexbox, gradiente de fundo, cronômetro circular)
-JavaScript (ES6)	Lógica do cronômetro
-Font Awesome	Ícones dos botões (carregado por CDN)
-Estrutura do projeto
+## 🚀 Funcionalidades
+
+* **▶️ Iniciar / Pausar / Continuar:** Um único botão inteligente que alterna entre os estados, mudando de ícone conforme a ação.
+* **🔄 Resetar:** Zera o tempo acumulado, apaga o histórico de marcas e restaura o botão principal para o estado inicial.
+* **🚩 Marcar tempo:** Registra o tempo exato do clique e o adiciona a uma lista numerada (*"Marca 1", "Marca 2", ...*).
+* **🔢 Formato Preciso:** Exibição do tempo no formato `HH:MM:SS:CC` (horas, minutos, segundos e centésimos).
+
+## 🛠️ Tecnologias Utilizadas
+
+| Tecnologia | Uso |
+| :--- | :--- |
+| **HTML5** | Estrutura da página (display, botões e lista de marcas) |
+| **CSS3** | Estilização responsiva (layout com Flexbox, gradiente de fundo e cronômetro circular) |
+| **JavaScript (ES6)** | Lógica de contagem e manipulação do DOM |
+| **Font Awesome** | Ícones vetoriais para os botões (carregados via CDN) |
+
+## 📂 Estrutura do Projeto
+
+```text
 Cronometro/
-├── index.html   # Estrutura da página (display, botões e lista de marcas)
-├── style.css    # Estilização da página
-├── script.js    # Lógica do cronômetro
+├── index.html   # Estrutura e marcação da página
+├── style.css    # Design e identidade visual
+├── script.js    # Lógica de funcionamento do cronômetro
 └── README.md    # Documentação do projeto
-Como executar
-Baixe ou clone o projeto.
-Abra o arquivo index.html no navegador (clique duas vezes ou arraste para o navegador).
-Pronto! Não é necessário instalar dependências.
+```
 
-Obs.: é preciso ter conexão com a internet para os ícones aparecerem, pois o Font Awesome é carregado por CDN.
+## 💻 Como Executar
 
-Como usar
-Botão	Ação
-🔄	Reinicia o cronômetro e limpa as marcas
-▶️ / ⏸️	Inicia, pausa ou continua a contagem
-🚩	Salva o tempo atual na lista de marcas
-Como funciona (resumo do código)
-O tempo é guardado em uma variável timer, contada em centésimos de segundo.
-Um setInterval de 10 ms soma 1 ao timer e atualiza a tela.
-A função formatTime converte o valor total em horas, minutos, segundos e centésimos, completando com zeros à esquerda (padStart).
-O botão principal usa o atributo action (start, pause ou continue) para saber o que fazer ao ser clicado (função toggleTimer).
-As marcas ficam em um array marks e são exibidas na div#marks-list.
+1. Baixe os arquivos ou clone este repositório.
+2. Abra a pasta do projeto e dê um duplo clique no arquivo `index.html` (ou arraste-o para dentro do seu navegador de preferência).
+3. **Pronto!** O projeto rodará instantaneamente sem necessidade de servidores locais ou instalação de dependências.
+
+> ⚠️ **Nota:** É necessário estar conectado à internet para que os ícones dos botões sejam renderizados corretamente, já que o framework Font Awesome é importado via CDN.
+
+## 🕹️ Como Usar
+
+| Botão | Ação |
+| :---: | :--- |
+| 🔄 | Reinicia o cronômetro para o estado zero e limpa todo o histórico de marcas. |
+| ▶️ / ⏸️ | Botão dinâmico que inicia, pausa ou retoma a contagem do tempo. |
+| 🚩 | Captura o tempo atual e o salva na lista de marcas na tela. |
+
+## 🧠 Como Funciona (Resumo do Código)
+
+* **Controle do Tempo:** O tempo decorrido é armazenado em uma variável numérica chamada `timer`, incrementada em centésimos de segundo.
+* **Precisão:** Um método `setInterval` configurado para disparar a cada 10 milissegundos adiciona `+1` ao contador principal e atualiza a interface de usuário.
+* **Formatação:** A função `formatTime` divide o valor total de centésimos em blocos de horas, minutos, segundos e centésimos correspondentes, aplicando a propriedade `padStart` para garantir o preenchimento com zeros à esquerda quando necessário.
+* **Máquina de Estados:** O botão principal gerencia suas ações por meio do atributo personalizado `action` (`start`, `pause` ou `continue`), que define o comportamento da função `toggleTimer` a cada clique.
+* **Histórico:** As voltas capturadas são empurradas para dentro de um array `marks` e renderizadas dinamicamente dentro da tag `div#marks-list`.
